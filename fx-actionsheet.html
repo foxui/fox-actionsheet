@@ -1,0 +1,69 @@
+<foxui-element name="fx-actionsheet" attributes="argument">
+
+    <fox-template>
+        <div id="fx-actionsheet-container" class="action-sheet-backdrop">
+            <div id="fx-actionsheet-wrapper" class="action-sheet-wrapper">
+                <div class="action-sheet">
+                    <div class="action-sheet-group">
+                        <div class="action-sheet-title" rv-if="param.titleText">
+                            {param.titleText}
+                        </div>
+                        <button class="button" rv-on-click="button.click" rv-each-button="param.buttons">
+                            {button.text}
+                        </button>
+
+                    </div>
+                    <div class="action-sheet-group" rv-if="param.destructive">
+                        <button class="button destructive" rv-on-click="param.destructive.click">
+                            {param.destructive.text}
+                        </button>
+                    </div>
+                    <div class="action-sheet-group" rv-if="param.cancel">
+                        <button class="button " rv-on-click="param.cancel.click">
+                            {param.cancel.text}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fox-template>
+
+    <script>
+		fox('fx-actionsheet', {
+			lifecycle : {
+				created : function() {
+					var self = this;
+					$(this.$['fx-actionsheet-container']).bind("click", function() {
+						self.close();
+					});
+
+					$(this.$['fx-actionsheet-wrapper']).bind("click", function() {
+						return false;
+					});
+				}
+			},
+			methods : {
+				show : function(param) {
+					this.param = param;
+					$(this.$['fx-actionsheet-container']).addClass("active");
+					$(this.$['fx-actionsheet-wrapper']).addClass("action-sheet-up");
+				},
+				close : function() {
+				    var self = this;
+					$(this.$['fx-actionsheet-container']).bind('webkitTransitionEnd', function(e) {
+						$(self).remove();
+					}).removeClass("active");
+					$(this.$['fx-actionsheet-wrapper']).removeClass("action-sheet-up");
+				}
+			}
+		});
+		fox.ui = fox.ui || {};
+		fox.ui.actionsheet = function(param) {
+			var actionsheet = document.createElement("fx-actionsheet");
+			$('body').append(actionsheet);
+			actionsheet.show(param);
+		}
+
+    </script>
+
+</foxui-element>
