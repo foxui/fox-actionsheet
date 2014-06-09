@@ -1,8 +1,8 @@
-<foxui-element name="fx-actionsheet" attributes="argument">
+<fox-element name="fox-actionsheet">
 
     <fox-template>
-        <div id="fx-actionsheet-container" class="action-sheet-backdrop">
-            <div id="fx-actionsheet-wrapper" class="action-sheet-wrapper">
+        <div id="fox-actionsheet-container" class="action-sheet-backdrop">
+            <div id="fox-actionsheet-wrapper" class="action-sheet-wrapper">
                 <div class="action-sheet">
                     <div class="action-sheet-group">
                         <div class="action-sheet-title" rv-if="param.titleText">
@@ -29,15 +29,15 @@
     </fox-template>
 
     <script>
-		fox('fx-actionsheet', {
+		fox('fox-actionsheet', {
 			lifecycle : {
 				created : function() {
 					var self = this;
-					$(this.$['fx-actionsheet-container']).bind("click", function() {
+					$(this.$['fox-actionsheet-container']).bind("click", function() {
 						self.close();
 					});
 
-					$(this.$['fx-actionsheet-wrapper']).bind("click", function() {
+					$(this.$['fox-actionsheet-wrapper']).bind("click", function() {
 						return false;
 					});
 				}
@@ -45,25 +45,25 @@
 			methods : {
 				show : function(param) {
 					this.param = param;
-					$(this.$['fx-actionsheet-container']).addClass("active");
-					$(this.$['fx-actionsheet-wrapper']).addClass("action-sheet-up");
+					$(this.$['fox-actionsheet-container']).addClass("active");
+					$(this.$['fox-actionsheet-wrapper']).addClass("action-sheet-up");
 				},
 				close : function() {
 				    var self = this;
-					$(this.$['fx-actionsheet-container']).bind('webkitTransitionEnd', function(e) {
+					$(this.$['fox-actionsheet-container']).bind('webkitTransitionEnd', function(e) {
 						$(self).remove();
 					}).removeClass("active");
-					$(this.$['fx-actionsheet-wrapper']).removeClass("action-sheet-up");
+					$(this.$['fox-actionsheet-wrapper']).removeClass("action-sheet-up");
 				}
 			}
 		});
 		fox.ui = fox.ui || {};
 		fox.ui.actionsheet = function(param) {
-			var actionsheet = document.createElement("fx-actionsheet");
+			var actionsheet = document.createElement("fox-actionsheet");
 			$('body').append(actionsheet);
 			actionsheet.show(param);
 		}
 
     </script>
 
-</foxui-element>
+</fox-element>

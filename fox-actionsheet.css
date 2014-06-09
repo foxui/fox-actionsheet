@@ -1,4 +1,4 @@
-.action-sheet-backdrop {
+fox-actionsheet .action-sheet-backdrop {
 	-webkit-transition: background-color 300ms ease-in-out;
 	-moz-transition: background-color 300ms ease-in-out;
 	transition: background-color 300ms ease-in-out;
@@ -10,7 +10,7 @@
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0);
 }
-.button {
+fox-actionsheet .button {
 	border-color: #b2b2b2;
 	background-color: #f8f8f8;
 	color: #444;
@@ -30,7 +30,7 @@
 	line-height: 42px;
 	cursor: pointer;
 }
-.button:after {
+fox-actionsheet .button:after {
 	position: absolute;
 	top: -6px;
 	right: -8px;
@@ -38,11 +38,11 @@
 	left: -8px;
 	content: ' ';
 }
-.action-sheet-backdrop.active {
+fox-actionsheet .action-sheet-backdrop.active {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
-.action-sheet-wrapper {
+fox-actionsheet .action-sheet-wrapper {
 	-webkit-transform: translate3d(0, 100%, 0);
 	-moz-transform: translate3d(0, 100%, 0);
 	transform: translate3d(0, 100%, 0);
@@ -54,20 +54,20 @@
 	width: 100%;
 }
 
-.action-sheet-up {
+fox-actionsheet .action-sheet-up {
 	-webkit-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
 
-.action-sheet {
+fox-actionsheet .action-sheet {
 	margin-left: 15px;
 	margin-right: 15px;
 	width: auto;
 	z-index: 11;
 	overflow: hidden;
 }
-.action-sheet .button {
+fox-actionsheet .action-sheet .button {
 	display: block;
 	padding: 1px;
 	width: 100%;
@@ -76,45 +76,45 @@
 	color: #4a87ee;
 	font-size: 18px;
 }
-.action-sheet .button.destructive {
+fox-actionsheet .action-sheet .button.destructive {
 	color: #ef4e3a;
 }
 
-.action-sheet-title {
+fox-actionsheet .action-sheet-title {
 	padding: 10px;
 	color: #666666;
 	text-align: center;
 	font-size: 12px;
 }
 
-.action-sheet-group {
+fox-actionsheet .action-sheet-group {
 	margin-bottom: 5px;
 	border-radius: 3px 3px 3px 3px;
 	background-color: #fff;
 }
-.action-sheet-group .button {
+fox-actionsheet .action-sheet-group .button {
 	border-width: 1px 0px 0px 0px;
 	border-radius: 0;
 }
-.action-sheet-group .button.active {
+fox-actionsheet .action-sheet-group .button.active {
 	background-color: transparent;
 	color: inherit;
 }
-.action-sheet-group .button:first-child:last-child {
+fox-actionsheet .action-sheet-group .button:first-child:last-child {
 	border-width: 0;
 }
 
-.action-sheet-open {
+fox-actionsheet .action-sheet-open {
 	pointer-events: none;
 }
-.action-sheet-open.modal-open .modal {
+fox-actionsheet .action-sheet-open.modal-open .modal {
 	pointer-events: none;
 }
-.action-sheet-open .action-sheet-backdrop {
+fox-actionsheet .action-sheet-open .action-sheet-backdrop {
 	pointer-events: auto;
 }
 
-.backdrop {
+fox-actionsheet .backdrop {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -128,9 +128,9 @@
 	-moz-transition: 0.1s opacity linear;
 	transition: 0.1s opacity linear;
 }
-.backdrop.visible {
+fox-actionsheet .backdrop.visible {
 	visibility: visible;
 }
-.backdrop.active {
+fox-actionsheet .backdrop.active {
 	opacity: 1;
 }
