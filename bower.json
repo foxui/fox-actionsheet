@@ -2,7 +2,7 @@
   "name": "fox-actionsheet",
   "private": true,
   "dependencies": {
-    "fox-core": "https://github.com/foxui/fox-core",
+    "fox-core": "https://github.com/foxui/fox-core"
   },
   "version": "0.1.0"
 }
