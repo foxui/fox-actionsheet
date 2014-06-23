@@ -23,7 +23,7 @@ module.exports = function(grunt) {
             ' * =====================================================\n' +
             ' * Foxui v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
             ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under <%= pkg.license %> (https://github.com/foxui/fox-icon/blob/master/LICENSE)\n' +
+            ' * Licensed under <%= pkg.license %> (https://github.com/foxui/fox-actionsheet/blob/master/LICENSE)\n' +
             ' *\n' +
             ' * v<%= pkg.version %> designed by @fex-team.\n' +
             ' * =====================================================\n' +
@@ -31,18 +31,6 @@ module.exports = function(grunt) {
 
     clean: {
       dist: ['<%= meta.distPath %>']
-    },
-
-    concat: {
-      foxui: {
-        options: {
-          banner: '<%= banner %>'
-        },
-        src: [
-          'src/*.js',
-        ],
-        dest: '<%= meta.distPath %><%= pkg.name %>.js'
-      }
     },
 
     sass: {
@@ -53,18 +41,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '<%= meta.distPath %><%= pkg.name %>.css': 'sass/fox-icon.scss'
-        }
-      }
-    },
-
-    csscomb: {
-      options: {
-        config: 'sass/.csscomb.json'
-      },
-      dist: {
-        files: {
-          '<%= meta.distPath %><%= pkg.name %>.css': '<%= meta.distPath %>/<%= pkg.name %>.css'
+          '<%= meta.distPath %><%= pkg.name %>.css': 'sass/fox-actionsheet.scss'
         }
       }
     },
@@ -95,23 +72,9 @@ module.exports = function(grunt) {
       }
     },
 
-    uglify: {
-      options: {
-        banner: '<%= banner %>',
-        compress: true,
-        mangle: true,
-        preserveComments: false
-      },
-      foxui: {
-        src: '<%= concat.foxui.dest %>',
-        dest: '<%= meta.distPath %><%= pkg.name %>.min.js'
-      }
-    },
-
     watch: {
       scripts: {
         files: [
-          'css/*.css',
           'sass/*.scss',
           'src/*.html'
         ],
@@ -129,8 +92,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   // Default task(s).
-  grunt.registerTask('dist-css', ['sass', 'csscomb', 'cssmin']);
-  grunt.registerTask('dist-js', ['concat', 'uglify']);
+  grunt.registerTask('dist-css', ['sass', 'cssmin']);
   grunt.registerTask('dist', ['clean','copy', 'dist-css' ]);
   grunt.registerTask('build', ['dist']);
   grunt.registerTask('default', ['dist']);

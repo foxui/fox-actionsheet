@@ -1,180 +1,162 @@
-fox-actionsheet .action-sheet-backdrop
-{
-    position: fixed;
-    z-index: 11;
-    top: 0;
-    left: 0;
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-actionsheet/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
 
-    width: 100%;
-    height: 100%;
-
-    -webkit-transition: background-color 300ms ease-in-out;
-       -moz-transition: background-color 300ms ease-in-out;
-            transition: background-color 300ms ease-in-out;
-
-    background-color: rgba(0, 0, 0, 0);
-}
-fox-actionsheet .button
-{
-    font-size: 16px;
-    line-height: 42px;
-
-    position: relative;
-
-    display: inline-block;
-
-    min-width: 52px;
-    min-height: 47px;
-    margin: 0;
-    padding: 0 12px;
-
-    cursor: pointer;
-    text-align: center;
-    vertical-align: top;
-    text-overflow: ellipsis;
-
-    color: #444;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #b2b2b2;
-    border-radius: 2px;
-    background-color: #f8f8f8;
-}
-fox-actionsheet .button:after
-{
-    position: absolute;
-    top: -6px;
-    right: -8px;
-    bottom: -6px;
-    left: -8px;
-
-    content: ' ';
-}
-fox-actionsheet .action-sheet-backdrop.active
-{
-    background-color: rgba(0, 0, 0, .5);
+fox-actionsheet {
+  z-index: 10;
 }
 
-fox-actionsheet .action-sheet-wrapper
-{
-    position: absolute;
-    bottom: 0;
-
-    width: 100%;
-
-    -webkit-transition: all ease-in-out 300ms;
-       -moz-transition: all ease-in-out 300ms;
-            transition: all ease-in-out 300ms;
-    -webkit-transform: translate3d(0, 100%, 0);
-       -moz-transform: translate3d(0, 100%, 0);
-            transform: translate3d(0, 100%, 0);
+fox-actionsheet .action-sheet-backdrop {
+  -webkit-transition: background-color 300ms ease-in-out;
+  -moz-transition: background-color 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
 }
 
-fox-actionsheet .action-sheet-up
-{
-    -webkit-transform: translate3d(0, 0, 0);
-       -moz-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+fox-actionsheet .button {
+  border-color: #b2b2b2;
+  background-color: #f8f8f8;
+  color: #444;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0 12px;
+  min-width: 52px;
+  min-height: 47px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+  vertical-align: top;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  line-height: 42px;
+  cursor: pointer;
 }
 
-fox-actionsheet .action-sheet
-{
-    z-index: 11;
-
-    overflow: hidden;
-
-    width: auto;
-    margin-right: 15px;
-    margin-left: 15px;
-}
-fox-actionsheet .action-sheet .button
-{
-    font-size: 18px;
-
-    display: block;
-
-    width: 100%;
-    padding: 1px;
-
-    color: #4a87ee;
-    border-radius: 0;
-    background-color: transparent;
-}
-fox-actionsheet .action-sheet .button.destructive
-{
-    color: #ef4e3a;
+fox-actionsheet .button:after {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  bottom: -6px;
+  left: -8px;
+  content: ' ';
 }
 
-fox-actionsheet .action-sheet-title
-{
-    font-size: 12px;
-
-    padding: 10px;
-
-    text-align: center;
-
-    color: #666;
+fox-actionsheet .action-sheet-backdrop.active {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-fox-actionsheet .action-sheet-group
-{
-    margin-bottom: 5px;
-
-    border-radius: 3px 3px 3px 3px;
-    background-color: #fff;
-}
-fox-actionsheet .action-sheet-group .button
-{
-    border-width: 1px 0 0 0;
-    border-radius: 0;
-}
-fox-actionsheet .action-sheet-group .button.active
-{
-    color: inherit;
-    background-color: transparent;
-}
-fox-actionsheet .action-sheet-group .button:first-child:last-child
-{
-    border-width: 0;
+fox-actionsheet .action-sheet-wrapper {
+  -webkit-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  -webkit-transition: all ease-in-out 300ms;
+  -moz-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
-fox-actionsheet .action-sheet-open
-{
-    pointer-events: none;
-}
-fox-actionsheet .action-sheet-open.modal-open .modal
-{
-    pointer-events: none;
-}
-fox-actionsheet .action-sheet-open .action-sheet-backdrop
-{
-    pointer-events: auto;
+fox-actionsheet .action-sheet-up {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
-fox-actionsheet .backdrop
-{
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-
-    visibility: hidden;
-
-    width: 100%;
-    height: 100%;
-
-    -webkit-transition: .1s opacity linear;
-       -moz-transition: .1s opacity linear;
-            transition: .1s opacity linear;
-
-    opacity: 0;
-    background-color: rgba(0, 0, 0, .4);
+fox-actionsheet .action-sheet {
+  margin-left: 15px;
+  margin-right: 15px;
+  width: auto;
+  z-index: 11;
+  overflow: hidden;
 }
-fox-actionsheet .backdrop.visible
-{
-    visibility: visible;
+
+fox-actionsheet .action-sheet .button {
+  display: block;
+  padding: 1px;
+  width: 100%;
+  border-radius: 0;
+  background-color: transparent;
+  color: #4a87ee;
+  font-size: 18px;
 }
-fox-actionsheet .backdrop.active
-{
-    opacity: 1;
+
+fox-actionsheet .action-sheet .button.destructive {
+  color: #ef4e3a;
+}
+
+fox-actionsheet .action-sheet-title {
+  padding: 10px;
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+}
+
+fox-actionsheet .action-sheet-group {
+  margin-bottom: 5px;
+  border-radius: 3px 3px 3px 3px;
+  background-color: #fff;
+}
+
+fox-actionsheet .action-sheet-group .button {
+  border-width: 1px 0px 0px 0px;
+  border-radius: 0;
+}
+
+fox-actionsheet .action-sheet-group .button.active {
+  background-color: transparent;
+  color: inherit;
+}
+
+fox-actionsheet .action-sheet-group .button:first-child:last-child {
+  border-width: 0;
+}
+
+fox-actionsheet .action-sheet-open {
+  pointer-events: none;
+}
+
+fox-actionsheet .action-sheet-open.modal-open .modal {
+  pointer-events: none;
+}
+
+fox-actionsheet .action-sheet-open .action-sheet-backdrop {
+  pointer-events: auto;
+}
+
+fox-actionsheet .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.1s opacity linear;
+  -moz-transition: 0.1s opacity linear;
+  transition: 0.1s opacity linear;
+}
+
+fox-actionsheet .backdrop.visible {
+  visibility: visible;
+}
+
+fox-actionsheet .backdrop.active {
+  opacity: 1;
 }
